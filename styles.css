@@ -90,11 +90,13 @@ h2 { margin: 0; font-size: 21px; letter-spacing: -.015em; }
 .section-heading > a { font-size: 12px; }
 .paper-list { border-top: 1px solid var(--line); }
 .paper {
+  position: relative;
   display: grid;
   grid-template-columns: 210px 1fr;
   gap: 26px;
   padding: 23px 0;
   border-bottom: 1px solid var(--line);
+  transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
 }
 .paper-image {
   width: 210px;
@@ -114,6 +116,7 @@ h2 { margin: 0; font-size: 21px; letter-spacing: -.015em; }
   height: 100%;
   padding: 5px;
   object-fit: contain;
+  transition: transform 240ms ease;
 }
 .paper-copy h3 {
   margin: -3px 0 6px;
@@ -121,6 +124,7 @@ h2 { margin: 0; font-size: 21px; letter-spacing: -.015em; }
   font-size: 16px;
   font-weight: 600;
   line-height: 1.4;
+  transition: color 180ms ease;
 }
 .authors, .venue, .summary { margin: 0; font-size: 12px; }
 .authors { color: #4e5550; }
@@ -139,11 +143,29 @@ h2 { margin: 0; font-size: 21px; letter-spacing: -.015em; }
   background: #fff;
   font-size: 11px;
   font-weight: 600;
+  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
 }
 .paper-links a:hover { border-color: var(--green); text-decoration: none; }
 .paper-links a.primary { border-color: var(--lime); background: var(--lime); }
 .paper-links a.primary:hover { background: #e2f27e; }
 .paper-links span { color: var(--muted); background: #f7f8f6; }
+
+@media (hover: hover) {
+  .paper:hover,
+  .paper:focus-within {
+    z-index: 1;
+    transform: translateY(-3px);
+    background: linear-gradient(90deg, rgba(216, 237, 98, .10), rgba(241, 216, 79, .05));
+    box-shadow: 0 9px 22px rgba(40, 82, 46, .09), inset 3px 0 0 var(--lime);
+  }
+  .paper:hover .paper-image img,
+  .paper:focus-within .paper-image img { transform: scale(1.035); }
+  .paper:hover .paper-copy h3,
+  .paper:focus-within .paper-copy h3 { color: var(--green-dark); }
+  .paper:hover .paper-links a,
+  .paper:focus-within .paper-links a { border-color: #abc34a; }
+  .paper-links a:hover { transform: translateY(-1px); }
+}
 
 footer {
   min-height: 78px;
@@ -171,4 +193,14 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .paper,
+  .paper-image img,
+  .paper-copy h3,
+  .paper-links a,
+  .paper-links span { transition: none; }
+  .paper:hover,
+  .paper:focus-within,
+  .paper:hover .paper-image img,
+  .paper:focus-within .paper-image img,
+  .paper-links a:hover { transform: none; }
 }
