@@ -94,7 +94,7 @@ h2 { margin: 0; font-size: 21px; letter-spacing: -.015em; }
   display: grid;
   grid-template-columns: 210px 1fr;
   gap: 26px;
-  padding: 23px 0;
+  padding: 23px 12px 23px 14px;
   border-bottom: 1px solid var(--line);
   transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
 }
