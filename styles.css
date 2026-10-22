@@ -129,6 +129,8 @@ h2 { margin: 0; font-size: 21px; letter-spacing: -.015em; }
   line-height: 1.4;
   transition: color 180ms ease;
 }
+.paper-copy h3 a { color: inherit; }
+.paper-copy h3 a:hover { text-decoration: underline; }
 .authors, .venue, .summary { margin: 0; font-size: 12px; }
 .authors { color: #4e5550; }
 .authors strong { color: var(--text); font-weight: 600; }
