@@ -121,6 +121,7 @@ h2 { margin: 0; font-size: 21px; letter-spacing: -.015em; }
   object-fit: contain;
   transition: transform 240ms ease;
 }
+.paper-image img.project-preview { padding: 0; object-fit: cover; }
 .paper-copy h3 {
   margin: -3px 0 6px;
   color: #2e5f35;
